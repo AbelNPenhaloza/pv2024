@@ -9,11 +9,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		
+		Pizza pizza;
 		//Crear tres objetos de la clase Pizza
 		for(int i=1; i<=3; i++) {
 						
-			Pizza pizza = new Pizza();
+			pizza = new Pizza();
 			
 			// Ingreso de datos de la pizza
 			int diametro=0;

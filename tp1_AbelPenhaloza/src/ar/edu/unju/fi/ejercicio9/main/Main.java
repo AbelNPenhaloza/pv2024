@@ -23,7 +23,7 @@ public class Main {
 			producto.setPrecio(sc.nextDouble());
 			System.out.print("Ingrese el descuento si corresponde en el rango [0, 50]: ");
 			producto.setDescuento(sc.nextInt());
-			
+			sc.nextLine();
 			//Mostrar los datos y el descuento calculado para cada producto
 			mostrarProducto(producto);
 							

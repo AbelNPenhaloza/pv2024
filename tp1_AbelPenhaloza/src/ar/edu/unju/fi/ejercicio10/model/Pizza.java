@@ -8,9 +8,9 @@ public class Pizza {
 	
 	//Constantes para los adicionales de ingredientes especiales.
 	
-	public static final double ESPECIAL20 = 500;
-	public static final double ESPECIAL30 = 750;
-	public static final double ESPECIAL40 = 1000;
+	private static final double ESPECIAL20 = 500;
+	private static final double ESPECIAL30 = 750;
+	private static final double ESPECIAL40 = 1000;
 	
 	/**
 	 * Constructor por defecto
