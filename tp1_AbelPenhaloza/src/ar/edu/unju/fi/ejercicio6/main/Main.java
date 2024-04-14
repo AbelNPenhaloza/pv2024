@@ -44,7 +44,7 @@ public class Main {
         persona1.setFechaNacimiento(fechaNacimiento);
         persona1.setProvincia(provincia);
         
-        return new Persona();
+        return persona1;
 	}
 	
 	private static Persona crearPersonaConDniNombreFechaNacimiento(String mensaje) {
