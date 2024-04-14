@@ -10,7 +10,8 @@ public class Main {
 	private static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 	
-		Persona persona1 = crearPersonaPorDefecto("Va a crear a la Persona 1");
+		Persona persona1= new Persona();
+		crearPersonaPorDefecto("Va a crear a la Persona 1", persona1);
 		System.out.println("---------------------------");
 		persona1.mostrarDatos();
 		
@@ -19,16 +20,14 @@ public class Main {
 		System.out.println("---------------------------");
 		persona2.mostrarDatos();
 		
-		Persona persona3 = crearPersonaPorDefecto("Va a crear a la Persona 3");
+		Persona persona3 = crearPersonaParametrizada("Va a crear a la Persona 3");
 		System.out.println("---------------------------");
 		persona3.mostrarDatos();
-		
-		
 		
 		sc.close();
 	}
 	
-	private static Persona crearPersonaPorDefecto(String mensaje) {
+	private static Persona crearPersonaPorDefecto(String mensaje, Persona persona1) {
 		System.out.println(mensaje);
 		System.out.println("***************************");
 		System.out.print("Ingrese el DNI:");
@@ -39,7 +38,13 @@ public class Main {
         LocalDate fechaNacimiento = LocalDate.parse(sc.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         System.out.print("Ingrese la Provincia:");
         String provincia = sc.nextLine();
-        return new Persona(dni, nombre, fechaNacimiento, provincia);
+        
+        persona1.setDni(dni);
+        persona1.setNombre(nombre);
+        persona1.setFechaNacimiento(fechaNacimiento);
+        persona1.setProvincia(provincia);
+        
+        return new Persona();
 	}
 	
 	private static Persona crearPersonaConDniNombreFechaNacimiento(String mensaje) {
@@ -55,19 +60,21 @@ public class Main {
 		LocalDate fechaNacimiento = LocalDate.parse(sc.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		return new Persona(dni,nombre, fechaNacimiento);
 	}
-	/*
-	 * private static Persona crearPersonaParametrizada() {
-	 * System.out.println("Va a crear a la Persona 3"); System.out.println("");
-	 * System.out.print("Ingrese DNI: "); String dni = sc.nextLine();
-	 * System.out.print("Ingrese Nombre: "); String nombre = sc.nextLine();
-	 * System.out.print("Ingrese fecha de Nacimiento(dd/MM/yyyy): "); LocalDate
-	 * fechaNacimiento = LocalDate.parse(sc.nextLine(),
-	 * DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-	 * System.out.print("Ingrese la Provincia: "); String provincia= sc.nextLine();
-	 * return new Persona(dni,nombre, fechaNacimiento, provincia);
-	 * 
-	 * }
-	 */
+	
+	  private static Persona crearPersonaParametrizada(String mensaje) {
+	  System.out.println("-----------------------------");
+	  System.out.println(mensaje);
+	  System.out.println("*****************************");
+	  System.out.print("Ingrese DNI: "); String dni = sc.nextLine();
+	  System.out.print("Ingrese Nombre: "); String nombre = sc.nextLine();
+	  System.out.print("Ingrese fecha de Nacimiento(dd/MM/yyyy): "); LocalDate
+	  fechaNacimiento = LocalDate.parse(sc.nextLine(),
+	  DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	  System.out.print("Ingrese la Provincia: "); String provincia= sc.nextLine();
+	  return new Persona(dni,nombre, fechaNacimiento, provincia);
+	  
+	  }
+	 
 	
 
 }

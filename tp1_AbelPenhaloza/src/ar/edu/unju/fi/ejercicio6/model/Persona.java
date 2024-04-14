@@ -87,7 +87,7 @@ public class Persona {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimineto(LocalDate fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
