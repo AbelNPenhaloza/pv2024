@@ -1,54 +1,71 @@
 package ar.edu.unju.fi.ejercicio6.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Persona {
 	private String dni;
 	private String nombre;
-	private LocalDate fechaNacimineto;
+	private LocalDate fechaNacimiento;
 	private String provincia;
 	
-	
 	/**
-	 * 
+	 * Constructor por defecto
 	 */
-	public Persona() {
-	}
+	public Persona() {}
 
 	/**
-	 * @param dni
-	 * @param nombre
-	 * @param fechaNacimineto
+	 * Constructor parametrizado con el atributo provincia inicializado en Jujuy.
+	 * @param dni de la persona
+	 * @param nombre de la persona
+	 * @param fechaNacimineto de la persona
 	 */
-	public Persona(String dni, String nombre, LocalDate fechaNacimineto) {
+	public Persona(String dni, String nombre, LocalDate fechaNacimiento) {
 		this.dni = dni;
 		this.nombre = nombre;
-		this.fechaNacimineto = fechaNacimineto;
+		this.fechaNacimiento = fechaNacimiento;
 		this.provincia = "Jujuy";
 	}
 
 	/**
-	 * @param dni
-	 * @param nombre
-	 * @param fechaNacimineto
-	 * @param provincia
+	 * Constructor parametrizado completo
+	 * @param dni de la persona
+	 * @param nombre de la persona
+	 * @param fechaNacimineto de la persona
+	 * @param provincia de donde es la persona
 	 */
-	public Persona(String dni, String nombre, LocalDate fechaNacimineto, String provincia) {
+	public Persona(String dni, String nombre, LocalDate fechaNacimiento, String provincia) {
 		this.dni = dni;
 		this.nombre = nombre;
-		this.fechaNacimineto = fechaNacimineto;
+		this.fechaNacimiento = fechaNacimiento;
 		this.provincia = provincia;
 	}
-	// Metodos
-	public int calcularEdad() {
-		int edad= 0;
-		return edad;
+	// Metodos de la clase
+	
+	public int getEdad() {
+		
+		return LocalDate.now().getYear() - fechaNacimiento.getYear();
 	}
 	
-	public boolean verificarEdad() {
-		boolean bandera= true;
-		return bandera;
+	public boolean esMayorDeEdad() {
+		return getEdad()> 18;
 	}
+	public void mostrarDatos() {
+		//Formatear de fecha
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		System.out.println("DNI: "+ dni);
+		System.out.println("Nombre: "+ nombre);
+		System.out.println("Fecha de Nacimiento: "+ fechaNacimiento.format(formatter));
+		System.out.println("Provincia: "+ provincia);
+		if(esMayorDeEdad()) {
+			System.out.println("Es mayor de edad");
+		}else {
+			System.out.println("No es mayor de edad");
+		}
+	}
+	
+	//Metodos accesos
 	
 	public String getDni() {
 		return dni;
@@ -66,12 +83,12 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	public LocalDate getFechaNacimineto() {
-		return fechaNacimineto;
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
 	}
 
-	public void setFechaNacimineto(LocalDate fechaNacimineto) {
-		this.fechaNacimineto = fechaNacimineto;
+	public void setFechaNacimineto(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public String getProvincia() {
@@ -82,12 +99,6 @@ public class Persona {
 		this.provincia = provincia;
 	}
 
-	@Override
-	public String toString() {
-		return "Persona [dni=" + dni + ", nombre=" + nombre + ", fechaNacimineto=" + fechaNacimineto + ", provincia="
-				+ provincia + "]";
-	}
-	
 	
 	
 }
