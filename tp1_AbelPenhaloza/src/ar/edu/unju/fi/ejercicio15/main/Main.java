@@ -39,9 +39,9 @@ public class Main {
 					nombres[i] = sc.nextLine();
 					if(nombres[i].matches("[a-zA-ZáéíóúñÑ\\s]+")) {// valida que solo contenga letras y espacios.
 						nombreValido = true;
-					}else {
-						throw new Exception("El nombre ingresado contiene caracteres no validos.");
-					}
+					} else { throw new
+						  Exception("El nombre ingresado contiene caracteres no validos."); }
+						 
 				}catch (Exception e) {
 					System.out.println("Error: "+ e.getMessage());
 				}

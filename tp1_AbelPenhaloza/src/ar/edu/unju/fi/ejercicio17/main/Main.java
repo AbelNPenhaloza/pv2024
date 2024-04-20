@@ -275,7 +275,7 @@ public class Main {
 				fechaValida = true;
 				
 			}catch (DateTimeParseException e) {
-				System.out.println("Por favor, ingrese una fecha valida en el formato dd/MM/yyyy");
+				System.out.println("Por favor, ingrese una fecha valida en el formato (dd/MM/yyyy)");
 			}
 		}while(!fechaValida);
 		return fechaNacimiento;
